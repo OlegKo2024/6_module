@@ -1,6 +1,7 @@
 print('Задача "Изменять нельзя получать"')
 print('Вариант - 1')
 
+
 class Vehicles:
     __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 
@@ -53,7 +54,6 @@ vehicle1.print_info()
 print('Вариант - 2')
 
 
-
 class Vehicles:
     __COLOR_VARIANTS = ['blue', 'red', 'green', 'black', 'white']
 
@@ -63,10 +63,9 @@ class Vehicles:
         self.__engine_power = int(__engine_power)
         self.__color = str(__color)
 
-
     def __str__(self):
-        return(f'Модель: {self.__model} \nМощность двигателя: {self.__engine_power} \nЦвет: {self.__color} \n'
-               f'Passengers limit: {self._Sedan__PASSENGERS_LIMIT}')
+        return (f'Модель: {self.__model} \nМощность двигателя: {self.__engine_power} \nЦвет: {self.__color} \n'
+                f'Passengers limit: {self._Sedan__PASSENGERS_LIMIT}')
 
     def set_color(self, new_color):
         self.__COLOR_VARIANTS = [i.lower() for i in self.__COLOR_VARIANTS]
