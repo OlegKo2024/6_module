@@ -38,9 +38,9 @@ class Figure:
     def set_color(self, color: list[int, int, int]):
         if self.__is_valid_color(color):
             self.__color = color
-        else:
             # print(f'{color} не может быть изменен, должен быть список (R, G, B) в интервале 0-255')
-            return self.__color
+        return self.__color
+
 
 # Метод __is_valid_sides - служебный, принимает неограниченное кол-во сторон, возвращает True если все стороны целые
 # положительные числа и кол-во новых сторон совпадает с текущим, False - во всех остальных случаях
