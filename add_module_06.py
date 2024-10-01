@@ -32,9 +32,8 @@ class Figure:
         if isinstance(color, list) and len(color) == 3:
             if all(isinstance(c, int) and 0 <= c <= 255 for c in color):
                 return color
-        return None
-        # print(f'{color} должен быть список (R, G, B) в интервале 0-255')
         # return None
+        # print(f'{color} должен быть список (R, G, B) в интервале 0-255')
 
     def set_color(self, color: list[int, int, int]):
         if self.__is_valid_color(color):
