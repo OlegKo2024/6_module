@@ -43,20 +43,20 @@ class Figure:
             # print(f'{color} не может быть изменен, должен быть список (R, G, B) в интервале 0-255')
             return self.__color
 
-    # Метод __is_valid_sides - служебный, принимает неограниченное кол-во сторон, возвращает True если все стороны целые
-    # положительные числа и кол-во новых сторон совпадает с текущим, False - во всех остальных случаях
+# Метод __is_valid_sides - служебный, принимает неограниченное кол-во сторон, возвращает True если все стороны целые
+# положительные числа и кол-во новых сторон совпадает с текущим, False - во всех остальных случаях
     def __is_valid_sides(self, *args):
         if len(args) == self.sides_count:
             if all(isinstance(sides, int) and sides > 0 for sides in args):
                 return True
         return False
 
-    # Метод get_sides должен возвращать значение я атрибута __sides.
+# Метод get_sides должен возвращать значение я атрибута __sides.
     def get_sides(self):
         return self.__sides
 
-    # Метод set_sides(self, *new_sides) должен принимать новые стороны, если их количество не равно sides_count, то не
-    # изменять, в противном случае - менять.
+# Метод set_sides(self, *new_sides) должен принимать новые стороны, если их количество не равно sides_count, то не
+# изменять, в противном случае - менять.
     def set_sides(self, *new_sides):
         if self.__is_valid_sides(*new_sides):
             self.__sides = list(new_sides)
@@ -70,8 +70,8 @@ class Figure:
 class Circle(Figure):
     sides_count = 1
 
-    # Атрибут __radius, рассчитать исходя из длины окружности (одной единственной стороны).
-    # Метод get_square возвращает площадь круга (можно рассчитать как через длину, так и через радиус).
+# Атрибут __radius, рассчитать исходя из длины окружности (одной единственной стороны).
+# Метод get_square возвращает площадь круга (можно рассчитать как через длину, так и через радиус).
     def __radius(self):
         return len(self) / (2 * pi)
 
@@ -82,7 +82,7 @@ class Circle(Figure):
 class Triangle(Figure):
     sides_count = 3
 
-    # Метод get_square возвращает площадь треугольника. (можно рассчитать по формуле Герона)
+# Метод get_square возвращает площадь треугольника. (можно рассчитать по формуле Герона)
 
     def get_square(self):
         sides = self.get_sides()  # Используем публичный метод для получения сторон
@@ -93,8 +93,8 @@ class Triangle(Figure):
 class Cube(Figure):
     sides_count = 12
 
-    # Переопределить __sides сделав список из 12 одинаковы сторон (передаётся 1 сторона)
-    # Метод get_volume, возвращает объём куба.
+# Переопределить __sides сделав список из 12 одинаковы сторон (передаётся 1 сторона)
+# Метод get_volume, возвращает объём куба.
 
     def all_equal(self):
         return all(sides == self.get_sides()[0] for sides in self.get_sides())
@@ -128,16 +128,17 @@ print(cube1.get_sides())
 circle1.set_sides(15)  # Изменится
 print(circle1.get_sides())
 
-print('Проверка периметра (круга), это и есть длина:')
+print('Проверка периметра и площади (круга)')
 print(len(circle1))
 print(circle1.get_square())
+
+print('Проверка всего по треугольнику')
 trianle1 = Triangle([10, 10, 10], [200, 200, 100])
 print(trianle1.get_color())
 trianle1.set_color([40, 70, 15])
 print(trianle1.get_color())
 trianle1.set_sides(5, 5, 5)
 print(trianle1.get_sides())
-
 print(trianle1.get_square())
 
 print('Проверка объёма (куба):')
